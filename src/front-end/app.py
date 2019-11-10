@@ -1,6 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request
+import pandas as pd
+import pickle
 import os
 app = Flask(__name__)
+
+filename = open('ocrug_finalized_model.sav','rb')
+model = pickle.load(filename)
 
 @app.route('/')
 def Index():
@@ -22,13 +27,12 @@ def About():
 # API calls
 @app.route('/generateModel', methods=['POST'])
 def GenerateModel():
-    age = request.form['age']
-    marital = request.form['marital']
-    poutcome = request.form['poutcome']
-    return age + ' ' + marital + ' ' + poutcome
-    # your code
-    # return a response
+    values = request.form.to_dict()
+    df = pd.DataFrame(values, index=[0])
+    df_onehot=pd.get_dummies(df,columns=['day_bin','pdays_bin','job','marital','education','default','housing','loan','contact','poutcome'])
+    prediction = model.predict_proba(df_onehot.values)
 
+    return render_template("ScoreAssessment.html", prediction = prediction)
 
 if __name__ == '__main__':
     app.run()
