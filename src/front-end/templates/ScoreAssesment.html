@@ -6,6 +6,12 @@
 
 {% block page_content %}
   <h1>Score Assesment</h1>
+
+  {% if prediction is defined %}
+  <div class="modelScore">
+    Likelihood of making a deposite: <span>{{ prediction }}</span>
+  </div>
+  {% endif %}
   <form id="modelForm" action="{{ url_for('GenerateModel') }}" method="post" class="form-style-9">
     <ul>
     <li>
@@ -144,37 +150,37 @@
         </div>
         <select class="custom-select" id="day_bin" name="day_bin" required>
           <option value="" selected>Choose...</option>
-          <option value="(0,7]">1</option>
-          <option value="(0,7]">2</option>
-          <option value="(0,7]">3</option>
-          <option value="(0,7]">4</option>
-          <option value="(0,7]">5</option>
-          <option value="(0,7]">6</option>
-          <option value="(0,7]">7</option>
-          <option value="(7,14]">8</option>
-          <option value="(7,14]">9</option>
-          <option value="(7,14]">10</option>
-          <option value="(7,14]">11</option>
-          <option value="(7,14]">12</option>
-          <option value="(7,14]">13</option>
-          <option value="(7,14]">14</option>
-          <option value="(14,21]">15</option>
-          <option value="(14,21]">16</option>
-          <option value="(14,21]">17</option>
-          <option value="(14,21]">18</option>
-          <option value="(14,21]">19</option>
-          <option value="(14,21]">20</option>
-          <option value="(21,28]">21</option>
-          <option value="(21,28]">22</option>
-          <option value="(21,28]">23</option>
-          <option value="(21,28]">24</option>
-          <option value="(21,28]">25</option>
-          <option value="(21,28]">26</option>
-          <option value="(21,28]">27</option>
-          <option value="(28,31]">28</option>
-          <option value="(28,31]">29</option>
-          <option value="(28,31]">30</option>
-          <option value="(28,31]">31</option>
+          <option value="(0, 7]">1</option>
+          <option value="(0, 7]">2</option>
+          <option value="(0, 7]">3</option>
+          <option value="(0, 7]">4</option>
+          <option value="(0, 7]">5</option>
+          <option value="(0, 7]">6</option>
+          <option value="(0, 7]">7</option>
+          <option value="(7, 14]">8</option>
+          <option value="(7, 14]">9</option>
+          <option value="(7, 14]">10</option>
+          <option value="(7, 14]">11</option>
+          <option value="(7, 14]">12</option>
+          <option value="(7, 14]">13</option>
+          <option value="(7, 14]">14</option>
+          <option value="(14, 21]">15</option>
+          <option value="(14, 21]">16</option>
+          <option value="(14, 21]">17</option>
+          <option value="(14, 21]">18</option>
+          <option value="(14, 21]">19</option>
+          <option value="(14, 21]">20</option>
+          <option value="(21, 28]">21</option>
+          <option value="(21, 28]">22</option>
+          <option value="(21, 28]">23</option>
+          <option value="(21, 28]">24</option>
+          <option value="(21, 28]">25</option>
+          <option value="(21, 28]">26</option>
+          <option value="(21, 28]">27</option>
+          <option value="(28, 31]">28</option>
+          <option value="(28, 31]">29</option>
+          <option value="(28, 31]">30</option>
+          <option value="(28, 31]">31</option>
         </select>
       </div>
 
@@ -226,6 +232,7 @@
     </li>
     </ul>
   </form>
+
 {% endblock %}
 
 {% block bottomjs %}
