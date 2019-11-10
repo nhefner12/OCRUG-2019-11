@@ -22,12 +22,9 @@ def About():
 # API calls
 @app.route('/generateModel', methods=['POST'])
 def GenerateModel():
-    age = request.form['age']
-    marital = request.form['marital']
-    poutcome = request.form['poutcome']
-    return age + ' ' + marital + ' ' + poutcome
-    # your code
-    # return a response
+    values = request.form.to_dict()
+    print(values)
+    return 'hi'
 
 
 if __name__ == '__main__':
