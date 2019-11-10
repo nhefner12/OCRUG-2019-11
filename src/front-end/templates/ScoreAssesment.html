@@ -5,24 +5,149 @@
 {% endblock %}
 
 {% block page_content %}
-  <h3>Score Assesment</h3>
-  <form action="{{ url_for('GenerateModel') }}" method="post" class="form-style-9">
+  <h1>Score Assesment</h1>
+  <form id="modelForm" action="{{ url_for('GenerateModel') }}" method="post" class="form-style-9">
     <ul>
     <li>
-        <input type="text" name="field1" class="field-style field-split align-left" placeholder="Name" required />
-        <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" required />
+        <input type="text" name="age" class="field-style field-split align-left" placeholder="Age" required />
+
+        <div class="input-group field-style field-split align-right">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="job">Occupation</label>
+          </div>
+          <select class="custom-select" id="job">
+            <option selected>Choose...</option>
+            <option value="management">Management</option>
+            <option value="technician">Technician</option>
+            <option value="entreprenuer">Entrepreneur</option>
+            <option value="blue-coller">Blue-Collar</option>
+            <option value="retired">Retired</option>
+            <option value="admin">Admin</option>
+            <option value="services">Services</option>
+            <option value="self-employed">Self-Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="housemaid">Housemaid</option>
+            <option value="student">Student</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
     </li>
     <li>
-        <input type="text" name="field3" class="field-style field-split align-left" placeholder="Phone" required />
-        <input type="url" name="field4" class="field-style field-split align-right" placeholder="Website" required />
+      <div class="input-group field-style field-split align-left">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="marital">Marital Status</label>
+        </div>
+        <select class="custom-select" id="marital" name="marital">
+          <option selected>Choose...</option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+          <option value="divorced">Divorced</option>
+        </select>
+      </div>
+
+      <div class="input-group field-style field-split align-right">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="education">Education</label>
+        </div>
+        <select class="custom-select" id="education" name="education">
+          <option selected>Choose...</option>
+          <option value="primary">Primary</option>
+          <option value="secondary">Secondary</option>
+          <option value="teritary">Teritary</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </li>
+
+    <li>
+      <div class="input-group field-style field-split align-left">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="pdays_bin">Days Since Last Reach Out</label>
+        </div>
+        <select class="custom-select" id="pdays_bin" name="pdays_bin">
+          <option selected>Choose...</option>
+          <option value="(-2, -1]">No Reach Out</option>
+          <option value="(0, 400]">0 - 400 Days</option>
+          <option value="(400, 900]">400+ Days</option>
+        </select>
+      </div>
+
+      <div class="input-group field-style field-split align-right">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="default">Past Credit Defaults</label>
+        </div>
+        <select class="custom-select" id="default" name="default">
+          <option value="yes" selected>Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
     </li>
     <li>
+      <div class="input-group field-style field-split align-left">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="housing">House Ownership</label>
+        </div>
+        <select class="custom-select" id="housing" name="housing">
+          <option value="yes" selected>Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="input-group field-style field-split align-right">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="loan">Past Personal Loan Conversions</label>
+        </div>
+        <select class="custom-select" id="loan" name="loan">
+          <option value="yes" selected>Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </li>
+    <li>
+      <div class="input-group field-style field-split align-left">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="contact">Contact Preference</label>
+        </div>
+        <select class="custom-select" id="contact" name="contact">
+          <option selected>Choose...</option>
+          <option value="cellular">Cellular</option>
+          <option value="telephone">Telephone</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="input-group field-style field-split align-right">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="poutcome">Outcome of Last Reach Out</label>
+        </div>
+        <select class="custom-select" id="poutcome" name="poutcome">
+          <option selected>Choose...</option>
+          <option value="success">Success</option>
+          <option value="failure">Failure</option>
+          <option value="other">Other</option>
+          <option value="DNE">No Reach-Out</option>
+        </select>
+      </div>
+    </li>
+    <!-- <li>
+        <input type="text" name="month" class="field-style field-split align-left" placeholder="Month" required />
+        <input type="text" name="durantion" class="field-style field-split align-right" placeholder="duration" required />
+    </li>
+    <li>
+        <input type="text" name="month" class="field-style field-split align-left" placeholder="Month" required />
+        <input type="text" name="durantion" class="field-style field-split align-right" placeholder="duration" required />
+    </li>
+    <li>
+        <input type="text" name="month" class="field-style field-split align-left" placeholder="Month" required />
+        <input type="text" name="durantion" class="field-style field-split align-right" placeholder="duration" required />
+    </li>
+    <!-- <li>
     <input type="text" name="field3" class="field-style field-full align-none" placeholder="Subject" required />
     </li>
     <li>
     <textarea name="field5" class="field-style" placeholder="Message" required></textarea>
-    </li>
+    </li> -->
     <li>
     <input type="submit" value="Generate" />
     </li>

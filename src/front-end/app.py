@@ -22,8 +22,10 @@ def About():
 # API calls
 @app.route('/generateModel', methods=['POST'])
 def GenerateModel():
-    name = request.form['field1']
-    return name
+    age = request.form['age']
+    marital = request.form['marital']
+    poutcome = request.form['poutcome']
+    return age + ' ' + marital + ' ' + poutcome
     # your code
     # return a response
 

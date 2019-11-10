@@ -39,10 +39,10 @@ button:hover, a:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 3%;
   height: 20%;
+  margin-top: 4%;
 }
 
 .team-flexbox-item {
-  width: 33%;
+  width: 25%;
 }
