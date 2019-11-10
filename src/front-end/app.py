@@ -49,7 +49,7 @@ def GenerateModel():
             pass
         else:
             df_onehot[i]=0
-    
+
     # get=[]
     # for i in df_onehot.columns:
     #     get.append(i)
@@ -63,7 +63,7 @@ def GenerateModel():
 
     prediction = model.predict_proba(df_onehot.values)
 
-    return render_template("ScoreAssesment.html", prediction = prediction[0][1])
+    return render_template("ScoreAssesment.html", prediction = round(prediction[0][1],2))
 
 if __name__ == '__main__':
     app.run()
