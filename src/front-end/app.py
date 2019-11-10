@@ -63,7 +63,7 @@ def GenerateModel():
 
     prediction = model.predict_proba(df_onehot.values)
 
-    return render_template("ScoreAssesment.html", prediction = round(prediction,2))
+    return render_template("ScoreAssesment.html", prediction = prediction[0][1])
 
 if __name__ == '__main__':
     app.run()
