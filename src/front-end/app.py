@@ -28,9 +28,14 @@ def About():
 @app.route('/generateModel', methods=['POST'])
 def GenerateModel():
     values = request.form.to_dict()
+<<<<<<< HEAD
     df = pd.DataFrame(values, index=[0])
     df_onehot=pd.get_dummies(df,columns=['day_bin','pdays_bin','job','marital','education','default','housing','loan','contact','poutcome'])
     prediction = model.predict_proba(df_onehot.values)
+=======
+    print(values)
+    return 'hi'
+>>>>>>> 92753c57016f896b45888e81ce09803a07dd7816
 
     return render_template("ScoreAssessment.html", prediction = prediction)
 
