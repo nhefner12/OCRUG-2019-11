@@ -15,9 +15,9 @@ def Model():
 def Visualization():
     return render_template('DataVisualization.html', active_page="visualization")
 
-@app.route('/about')
+@app.route('/team')
 def About():
-    return render_template('About.html', active_page="about")
+    return render_template('Team.html', active_page="team")
 
 # API calls
 @app.route('/generateModel', methods=['POST'])
